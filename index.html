@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta rel="stylesheet" href="">
+    <meta rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="" id="first-card">
+        <div id="profile-background"><img src="https:blablabla" alt="una imagen o fondo(opcional)"></div>
+        <div id="info" style="padding: 16px">
+            <div id="info-img">
+                <img class="profile-image" src="https:blablabla" alt="foto mia">
+                <div class="btn-edit"><a href="#" class="btn-right"></i class="fa fa-pen"></a></div>
+            </div>
+            
+            <div id="info-data">
+                <div>
+                    <h1>Alejandro Layera</h1>
+                    <div id="info-company">Desarrollador web full stack jr.</div>
+                    <div id="info-contact">
+                        <span>Mendoza - Argentina</span>
+                        <span><a href="#">información de contacto</a></span>
+                    </div>
+                </div>
+                <ul id="info-details">
+                    <li><a href="#">
+                        <img src="https:blablabla" alt="logo SIDINS">
+                        <h2>SIDINS S.A.</h2>
+                    </a></li>
+                    <li><a href="#">
+                        <img src="https:blablabla" alt="logo de argentina programa">
+                        <h2>Argentina Programa</h2>
+                    </a></li>
+                </ul>
+            </div>
+            <div id="info-actions">
+                <button type="button" class="btn btn-primary">Tengo interés en</button>
+                <button type="button" class="btn btn-light">Añadir Sección</button>
+
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="card ale-card">
+        <div class="card-titles">
+            <h2>Acerca de</h2>
+            <div class="btn-edit" onclick="cambiar_parrafo()">
+                <a href="#" class="btn-right">
+                    <i class="fa fa-pen"></i>
+                </a>
+            </div>
+        </div>
+        <div>
+            <p id="text-acercade">html, css, js, bases de datos, etc</p>
+        </div>
+        <div>
+            <input id="edit-acercade" type="text" oninput="myFunction2(this.value)" style="display: none">
+        </div>
+    </div>
+    
+    <input type="file" id="file1" onchange="showFile(this)">
+    
+    <script>
+        function cambiar-parrafo(){
+            document.getElementById("edit-acercade").style: display="block";
+            let texto = document.getElementById("text-acercade").innerText;
+            console.log(texto);
+        };
+        function myFunction2(valor){
+            document.getElementById("text-acercade").innerText=valor;
+        };
+
+        // Controla si se presionó un Enter 
+        let textarea=document.getElementById("edit-acercade")
+        textarea.addEventListener("keyup",(e) => {
+            logMessage(`Key "${e.key}" released  [event: keyup]`);
+            if (e.key=="Enter"){
+                document.getElementById("edit-acercade").style.display= "none"
+            }
+        });
+        // carga el contenido de un archivo de texto y lo muestra en el parrafo
+        function showFile(input){
+            let file = input.files[0];
+            alert(`File name: ${file.name}`);//e.g my.png
+            alert(`Last modified: ${file.lastModified}`); //e.g 1552830408824
+
+            let reader = new FileReader();
+            reader.readAsText(file);
+            reader.onload = function(){
+                console.log(reader.result);
+                document.getElementById("text-acercade").innerText=reader.result;                
+            };
+            reader.onerror = function() {
+                console.log(reader.error);
+            };
+        }
+    </script>
+</body>
+</html>
